@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="Traffic Tangle \u2014 draw a route for every little car, set the lights, then start the traffic. A cosy 2.5D traffic puzzle from Little Joy Arcade."
+    />
+    <meta name="theme-color" content="#132a3a" />
+    <meta property="og:title" content="Traffic Tangle" />
+    <meta property="og:description" content="Draw the routes. Start the traffic. Get everyone home." />
+    <meta property="og:type" content="website" />
+    <title>Traffic Tangle \u2014 Little Joy Arcade</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background: #132a3a;
+        touch-action: none;
+        -webkit-tap-highlight-color: transparent;
+        overscroll-behavior: none;
+      }
+      #game {
+        width: 100%;
+        height: 100%;
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+        box-sizing: border-box;
+      }
+      #game canvas {
+        display: block;
+        touch-action: none;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+      #boot-fail {
+        display: none;
+        position: fixed;
+        inset: 0;
+        place-content: center;
+        padding: 32px;
+        color: #fff4e2;
+        font: 16px/1.5 "Trebuchet MS", system-ui, sans-serif;
+        text-align: center;
+      }
+      #boot-fail.visible {
+        display: grid;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="game" aria-label="Traffic Tangle game canvas" role="application"></main>
+    <p id="game-status" class="sr-only" aria-live="polite"></p>
+    <noscript>Traffic Tangle needs JavaScript enabled.</noscript>
+    <div id="boot-fail" role="alert">
+      <div>
+        <h1>Traffic Tangle could not start</h1>
+        <p>The game needs WebGL or Canvas. Try reloading, or open it in a newer browser.</p>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+    <script src="./arcade-client.js" data-game-id="traffic-tangle"></script>
+  </body>
+</html>
