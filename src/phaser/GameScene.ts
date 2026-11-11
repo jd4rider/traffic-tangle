@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import { openTipJar } from './support'
 import { app } from '../core/app'
 import { arcade } from '../core/arcade'
 import { sound } from '../core/audio'
@@ -721,6 +722,10 @@ export class GameScene extends Phaser.Scene {
     overlay.add(
       button(this, 380, 712, 250, 60, 'Menu', () => this.exitToMenu(), { fill: CREAM, size: 17 }),
     )
+    // Quiet support link: results screen only, inside the card under the actions.
+    overlay.add(
+      button(this, DESIGN_W / 2, 780, 250, 44, '☕ Buy me a coffee', () => openTipJar(), { fill: CREAM, size: 15 }),
+    )
     this.overlay = overlay
   }
 
@@ -769,6 +774,10 @@ export class GameScene extends Phaser.Scene {
         this.overlay = null
         this.useHint()
       }, { fill: CREAM, size: 17 }),
+    )
+    // Quiet support link: results screen only, inside the card under the actions.
+    overlay.add(
+      button(this, DESIGN_W / 2, 756, 230, 40, '☕ Buy me a coffee', () => openTipJar(), { fill: CREAM, size: 14 }),
     )
     this.overlay = overlay
   }
